@@ -1,33 +1,33 @@
-NAME			=	Libft
+NAME			=	Libft.a
 CC				=	gcc
 
-Dir_SOURCES		= 	sources
+DIR_SOURCES		= 	sources
 D_INCLUDES		=	includes
-Dir_OBJ			=	objects
+DIR_OBJ			=	objects
 
 OBJETOS_F		=	-O3
-Error_W_F		=	-Wall -Wextra -Werror
+ERROR_W_F		=	-Wall -Wextra -Werror -I. -c
 DEB				=
 MKDIR			=	mkdir -p
 RM				=	/bin/rm -rf
 
-Flag_Files		:=	$(shell ls -1 $(Dir_SOURCES) | grep .c$$)
-Flag_Objects	:=	$(Flag_Files:.c=.o)
-Flag_Objects	:=	$(addprefix $(Dir_OBJ)/, $(Flag_Objects))
+FLAG_FILES		:=	$(shell ls -1 $(DIR_SOURCES) | grep .c$$)
+FLAG_OBJECTS	:=	$(FLAG_FILES:.c=.o)
+FLAG_OBJECTS	:=	$(addprefix $(DIR_OBJ)/, $(FLAG_OBJECTS))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(Dir_OBJ)/%.o: $(Dir_SOURCES)/%.c $(D_INCLUDES)
-	@$(MKDIR) $(Dir_OBJ)
-	$(CC) -I$(D_INCLUDES) $(OBJETOS_F) $(Error_W_F) -c $< -o $@ $(DEB)
+$(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.c $(D_INCLUDES)
+	@$(MKDIR) $(DIR_OBJ)
+	$(CC) -I$(D_INCLUDES) $(OBJETOS_F) $(ERROR_W_F) -c $< -o $@ $(DEB)
 
-$(NAME): $(Flag_Objects)
-	$(CC) -I$(D_INCLUDES) $(OBJETOS_F) $(Error_W_F) $(Flag_Objects) -o $@ $(DEB)
+$(NAME): $(FLAG_OBJECTS)
+	$(CC) -I$(D_INCLUDES) $(OBJETOS_F) $(ERROR_W_F) $(FLAG_OBJECTS) -o $@ $(DEB)
 
 clean:
-	$(RM) $(Dir_OBJ)
+	$(RM) $(DIR_OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
