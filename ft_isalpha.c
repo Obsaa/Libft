@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int isalpha(int c)
+int ft_isalpha(int c)
 {
     if (c <= 90 && c >= 65)
         return (1);
