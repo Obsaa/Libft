@@ -19,11 +19,11 @@ int		ft_str_count_splits(const char *str, char seps)
 	i = 0;
 	while (*str != '\0')
 	{
-		str = ft_str_find_next(str, seps, 1);
+		str = ft_find_next(str, seps, 1);
 		if (*str != '\0')
 		{
 			i++;
-			str = ft_str_find_next(str, seps, 0);
+			str = ft_find_next(str, seps, 0);
 		}
 	}
 	return (i);

@@ -23,7 +23,7 @@ static const char	*ft_str_find_next(const char *str, char c, int skip)
 	return (str);
 }
 
-static int			ft_str_count_splits(const char *str, char seps)
+static int			ft_str_splits(const char *str, char seps)
 {
 	int i;
 
@@ -40,7 +40,7 @@ static int			ft_str_count_splits(const char *str, char seps)
 	return (i);
 }
 
-static char			**ft_tabledel(char **ret, int len)
+static char			**ft_table_del(char **ret, int len)
 {
 	int i;
 
@@ -59,7 +59,7 @@ char				**ft_strsplit(char const *str, char c)
 
 	if (str == NULL)
 		return (NULL);
-	ret = (char**)malloc(sizeof(char*) * (ft_str_count_splits(str, c) + 1));
+	ret = (char**)malloc(sizeof(char*) * (ft_str_splits(str, c) + 1));
 	if (ret == NULL)
 		return (NULL);
 	i = 0;
@@ -71,7 +71,7 @@ char				**ft_strsplit(char const *str, char c)
 			next = ft_str_find_next(str, c, 0);
 			ret[i] = ft_strsub(str, 0, next - str);
 			if (ret[i] == NULL)
-				return (ft_tabledel(ret, i));
+				return (ft_table_del(ret, i));
 			i++;
 			str = next;
 		}

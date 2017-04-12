@@ -83,10 +83,13 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strnew(size_t size);
+
 char				*ft_strrev(char *str);
 int					ft_charcont(int n);
 int					ft_isspace(int c);
 void				ft_swap_char(char *a, char *b);
-char				*ft_find_next(const char *str, char c, int skip);
+const char			*ft_find_next(const char *str, char c, int skip);
+int					ft_str_count_splits(const char *str, char seps);
+char				**ft_tabledel(char **ret, int len);
 
 #endif

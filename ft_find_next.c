@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_find.c                                      :+:      :+:    :+:   */
+/*   ft_find_next.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdalha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	*ft_str_find(const char *str, char c, int skip)
+const char	*ft_find_next(const char *str, char c, int skip)
 {
 	if (skip)
 		while (*str != '\0' && *str == c)

@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2015/10/28 14:16:38 by roblabla         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 
-CFLAGS += -Wall -Wextra -Werror -I -c
+CFLAGS = -Wall -Wextra -Werror -I -c
 
 SRCS = ft_memset.c \
 	   ft_bzero.c \
@@ -78,6 +66,9 @@ SRCS = ft_memset.c \
 	   ft_charcont.c \
 	   ft_isspace.c \
 	   ft_swap_char.c \
+	   ft_tabledel.c \
+	   ft_str_count_splits.c \
+	   ft_find_next.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -86,7 +77,8 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(AR) -rcs $(NAME) $?
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
 	$(RM) $(OBJS)
